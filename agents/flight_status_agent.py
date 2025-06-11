@@ -40,48 +40,49 @@ class FlightStatusAgent:
             
             # Check if API returned any flight data
             if not data.get('data') or len(data['data']) == 0:
-                return f"No flight information found for {flight_number}. Please verify the flight number."
+                return f"🔍 I couldn't find flight {flight_number}. Could you double-check the flight number? Airlines sometimes change flight numbers!"
             
             # Extract first flight result (most recent)
             flight_data = data['data'][0]
             
-            # Parse key flight information with null checks
-            airline = flight_data.get('airline', {}).get('name', 'Unknown airline')
+            # Parse key flight information with robust null checks
+            airline_info = flight_data.get('airline') or {}
+            airline = airline_info.get('name', 'Unknown airline')
             flight_status = flight_data.get('flight_status', 'Unknown status')
             
-            # Extract departure information
-            departure = flight_data.get('departure', {})
+            # Extract departure information safely
+            departure = flight_data.get('departure') or {}
             dep_airport = departure.get('airport', 'Unknown')
             dep_scheduled = departure.get('scheduled', 'N/A')
             dep_actual = departure.get('actual', 'N/A')
             
-            # Extract arrival information  
-            arrival = flight_data.get('arrival', {})
+            # Extract arrival information safely
+            arrival = flight_data.get('arrival') or {}
             arr_airport = arrival.get('airport', 'Unknown')
             arr_scheduled = arrival.get('scheduled', 'N/A')
             arr_estimated = arrival.get('estimated', 'N/A')
             
             # Format human-readable response
             status_msg = f"Flight {flight_number} ({airline}) - Status: {flight_status.title()}\n"
-            status_msg += f"From: {dep_airport} (Scheduled: {dep_scheduled[:16] if dep_scheduled != 'N/A' else 'N/A'})\n"
-            status_msg += f"To: {arr_airport} (Scheduled: {arr_scheduled[:16] if arr_scheduled != 'N/A' else 'N/A'})"
+            status_msg += f"From: {dep_airport} (Scheduled: {dep_scheduled[:16] if dep_scheduled and dep_scheduled != 'N/A' else 'N/A'})\n"
+            status_msg += f"To: {arr_airport} (Scheduled: {arr_scheduled[:16] if arr_scheduled and arr_scheduled != 'N/A' else 'N/A'})"
             
             # Add delay information if available
-            if dep_actual != 'N/A' and dep_actual != dep_scheduled:
+            if dep_actual and dep_actual != 'N/A' and dep_actual != dep_scheduled:
                 status_msg += f"\nActual Departure: {dep_actual[:16]}"
-            if arr_estimated != 'N/A' and arr_estimated != arr_scheduled:
+            if arr_estimated and arr_estimated != 'N/A' and arr_estimated != arr_scheduled:
                 status_msg += f"\nEstimated Arrival: {arr_estimated[:16]}"
                 
             return status_msg
             
         except requests.exceptions.Timeout:
-            return f"Request timeout while fetching status for {flight_number}. Please try again."
+            return f"⏰ The flight data service is taking a bit longer than usual for {flight_number}. Please give it another try!"
             
         except requests.exceptions.ConnectionError:
-            return f"Unable to connect to flight data service. Please check your internet connection."
+            return f"🌐 I'm having trouble connecting to get flight info. Could you check your internet connection and try again?"
             
         except requests.exceptions.HTTPError as e:
-            return f"API error occurred: {e.response.status_code}. Please check your API key or try again later."
+            return f"📡 I ran into an issue with the flight data service (error {e.response.status_code}). This usually resolves quickly!"
             
         except Exception as e:
             return f"Unexpected error while fetching flight status: {str(e)}" 
