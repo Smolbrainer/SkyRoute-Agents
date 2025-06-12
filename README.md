@@ -118,96 +118,128 @@ Sophisticated analysis capabilities beyond basic queries:
 
 ### Flight Status with Enhanced Recognition
 ```
-🗣️ Ask me anything: What's the status of ACA1185?
+🗣️  Ask me anything: Whats the status of AC1185
 
 🤔 Let me check that for you...
 
-Flight ACA1185 (Air Canada) - Status: Active
-From: Toronto Pearson International (Scheduled: 2025-01-15T14:30)
-To: Vancouver International (Scheduled: 2025-01-15T17:45)
-Actual Departure: 2025-01-15T14:42
-Estimated Arrival: 2025-01-15T17:38
+Flight AC1185 (Air Canada) - Status: Scheduled
+From: Lester B. Pearson International (Scheduled: 2025-06-12T20:30)
+To: Port Columbus International (Scheduled: 2025-06-12T21:51)
 ```
 
 ### 🆕 **Conversational Analytics Flow**
 ```
-🗣️ Ask me anything: What are the most on-time airlines from SFO to JFK?
+🗣️  Ask me anything: What are the most on-time airlines from JFK to ATL?
 
 🤔 Let me check that for you...
 
-Airlines ranked by on-time performance from SFO to JFK:
+Airlines ranked by on-time performance from JFK to ATL:
 
-#1. Delta Air Lines (DL)
-    Average overall delay: 2.3 minutes
-    Average departure delay: 3.1 minutes
-    Average arrival delay: 1.5 minutes
+#1. Endeavor Air Inc. (9E)
+    Average overall delay: 1.4 minutes
+    Average departure delay: 1.4 minutes
+    Average arrival delay: 1.3 minutes
+    On-time performance: 83.6% (≤15 min delay)
+    Total flights analyzed: 55
+
+#2. Delta Air Lines Inc. (DL)
+    Average overall delay: 8.5 minutes
+    Average departure delay: 10.6 minutes
+    Average arrival delay: 6.3 minutes
     On-time performance: 79.2% (≤15 min delay)
-    Total flights analyzed: 1,247
-
-#2. United Airlines (UA)
-    Average overall delay: 4.8 minutes
-    Average departure delay: 6.2 minutes
-    Average arrival delay: 3.4 minutes
-    On-time performance: 73.8% (≤15 min delay)
-    Total flights analyzed: 892
-
-#3. JetBlue Airways (B6)
-    Average overall delay: 7.1 minutes
-    Average departure delay: 8.9 minutes
-    Average arrival delay: 5.3 minutes
-    On-time performance: 69.4% (≤15 min delay)
-    Total flights analyzed: 634
+    Total flights analyzed: 1,874
 
 Note: On-time performance is defined as flights arriving within 15 minutes of scheduled time.
 Airlines with fewer than 10 flights on this route are excluded from rankings.
 
 -------------------------------------------------------
-🗣️ Ask me anything: What about from LAX to ORD?
+🗣️  Ask me anything: What about JFK to ORD?
 
 🤔 Let me check that for you...
 
-Airlines ranked by on-time performance from LAX to ORD:
-[System automatically applies on-time airline analysis to the new route]
+Airlines ranked by on-time performance from JFK to ORD:
+
+#1. American Airlines Inc. (AA)
+    Average overall delay: 16.2 minutes
+    Average departure delay: 24.1 minutes
+    Average arrival delay: 8.3 minutes
+    On-time performance: 74.0% (≤15 min delay)
+    Total flights analyzed: 365
+
+#2. JetBlue Airways (B6)
+    Average overall delay: 16.3 minutes
+    Average departure delay: 18.0 minutes
+    Average arrival delay: 14.7 minutes
+    On-time performance: 69.6% (≤15 min delay)
+    Total flights analyzed: 905
+
+#3. Endeavor Air Inc. (9E)
+    Average overall delay: 17.2 minutes
+    Average departure delay: 22.0 minutes
+    Average arrival delay: 12.3 minutes
+    On-time performance: 71.3% (≤15 min delay)
+    Total flights analyzed: 1,056
+
+Note: On-time performance is defined as flights arriving within 15 minutes of scheduled time.
+Airlines with fewer than 10 flights on this route are excluded from rankings.
 
 -------------------------------------------------------
-🗣️ Ask me anything: Which day has fewer delays?
+🗣️  Ask me anything: Which day has the fewest delays?
 
 🤔 Let me check that for you...
 
-Flight delays by day of week from LAX to ORD:
-[System remembers the LAX to ORD route and analyzes day-of-week patterns]
-```
+Flight delays by day of week from JFK to ORD:
 
-### 🆕 **Day-of-Week Intelligence**
-```
-🗣️ Ask me anything: Which day of the week has the least delays from SFO to DEN?
+#1. Saturday
+    Average overall delay: 11.8 minutes
+    Average departure delay: 17.7 minutes
+    Average arrival delay: 6.0 minutes
+    On-time performance: 76.4%
+    Total flights: 330
 
-🤔 Let me check that for you...
+#2. Tuesday
+    Average overall delay: 11.9 minutes
+    Average departure delay: 15.6 minutes
+    Average arrival delay: 8.2 minutes
+    On-time performance: 71.6%
+    Total flights: 335
 
-Flight delays by day of week from SFO to DEN:
+#3. Sunday
+    Average overall delay: 16.2 minutes
+    Average departure delay: 19.9 minutes
+    Average arrival delay: 12.6 minutes
+    On-time performance: 70.5%
+    Total flights: 329
 
-#1. Tuesday
-    Average overall delay: 5.2 minutes
-    Average departure delay: 6.8 minutes
-    Average arrival delay: 3.6 minutes
-    On-time performance: 76.3%
-    Total flights: 892
+#4. Wednesday
+    Average overall delay: 16.9 minutes
+    Average departure delay: 20.8 minutes
+    Average arrival delay: 13.0 minutes
+    On-time performance: 75.3%
+    Total flights: 332
 
-#2. Wednesday  
-    Average overall delay: 7.1 minutes
-    Average departure delay: 8.9 minutes
-    Average arrival delay: 5.3 minutes
-    On-time performance: 72.1%
-    Total flights: 834
+#5. Monday
+    Average overall delay: 18.5 minutes
+    Average departure delay: 22.2 minutes
+    Average arrival delay: 14.9 minutes
+    On-time performance: 68.9%
+    Total flights: 334
 
-#3. Saturday
-    Average overall delay: 8.4 minutes
-    Average departure delay: 10.2 minutes
-    Average arrival delay: 6.6 minutes
-    On-time performance: 69.7%
-    Total flights: 756
+#6. Friday
+    Average overall delay: 19.6 minutes
+    Average departure delay: 22.7 minutes
+    Average arrival delay: 16.5 minutes
+    On-time performance: 65.8%
+    Total flights: 333
 
-✅ **Tuesday** has the least delays with an average of 5.2 minutes overall delay.
+#7. Thursday
+    Average overall delay: 21.8 minutes
+    Average departure delay: 26.6 minutes
+    Average arrival delay: 17.1 minutes
+    On-time performance: 69.1%
+    Total flights: 333
+
+✅ **Saturday** has the least delays with an average of 11.8 minutes overall delay.
 ```
 
 ## 🏗️ Advanced Architecture
