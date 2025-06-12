@@ -364,7 +364,7 @@ class FlightAnalyticsAgent:
             # Handle case when no data is found
             if not day_data:
                 year_clause = f" in {year}" if year else ""
-                return f"🔍 I couldn't find any flights on that route{year_clause}. Try a popular route like LAX to JFK!"
+                return f"🔍 I couldn't find any flights on that route{year_clause}. Try a popular route like JFK to ORD!"
             
             # Map day numbers to day names (BigQuery DAYOFWEEK: 1=Sunday, 2=Monday, etc.)
             day_names = {
